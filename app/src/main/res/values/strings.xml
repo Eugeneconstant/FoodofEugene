@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Food of Eugene</string>
+    <string name="btn_1">Entrees</string>
+    <string name="btn_2">Plats</string>
+    <string name="btn_3">Desserts</string>
+    <string name="todo">TODO</string>
+</resources>
