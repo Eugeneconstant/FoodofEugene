@@ -36,15 +36,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="408dp"
-        android:layout_height="416dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/food_of_eugene"
-        android:contentDescription="@string/todo" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
