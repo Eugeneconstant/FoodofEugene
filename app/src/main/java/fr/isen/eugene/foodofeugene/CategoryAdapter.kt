@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import fr.isen.eugene.foodofeugene.databinding.CellCategoryBinding
 
 
 class CategoryAdapter(val Categories: List<String>): RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
@@ -14,9 +16,9 @@ class CategoryAdapter(val Categories: List<String>): RecyclerView.Adapter<Catego
             parent: ViewGroup,
             viewType: Int
     ): CategoryViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.cell_category, parent, false)
+        val binding  = CellCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
-        return CategoryViewHolder(view)
+        return CategoryViewHolder(binding.root)
     }
 
 
@@ -30,6 +32,8 @@ class CategoryAdapter(val Categories: List<String>): RecyclerView.Adapter<Catego
 
     class CategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.cellCategoryTitle)
+        //val Image: ImageView = view.findViewById(R.id.cellCategoryImage)
+        val Price: TextView = view.findViewById(R.id.cellCategoryPrice)
     }
 }
 

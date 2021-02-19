@@ -33,7 +33,6 @@ class HomeActivity : AppCompatActivity() {
         //Log.d("Home activity destroy", "destruction")
         val intent = Intent(this, CategoryActivity::class.java)
         intent.putExtra(CATEGORY_NAME, type)
-        intent.getStringExtra("category")
         startActivity(intent)
     }
     companion object {

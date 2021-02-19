@@ -33,8 +33,11 @@ class CategoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCategoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val categoryName = intent.getStringExtra("categoryTitle")
+        binding.categoryTitle.text = categoryName
         binding.categoryList.layoutManager = LinearLayoutManager(this)
-        binding.categoryList.adapter = CategoryAdapter(listOf("Salades ", "pate bolo", "Burgers"))
-
+        binding.categoryList.adapter = CategoryAdapter(listOf("Salade Cesar ", "Salade nicoise", "Salade Italienne"))
+        binding.categoryListPrice.layoutManager = LinearLayoutManager(this)
+        binding.categoryListPrice.adapter = CategoryAdapter(listOf("5.90 €", "5.90 €", "5.90 €"))
     }
 }
