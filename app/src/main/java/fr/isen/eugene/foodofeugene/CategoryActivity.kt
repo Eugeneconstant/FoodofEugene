@@ -1,5 +1,6 @@
 package fr.isen.eugene.foodofeugene
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,7 +24,7 @@ enum class Type{
 }
 
 
-class CategoryActivity : AppCompatActivity() {
+class CategoryActivity : AppCompatActivity(), CategoryAdapter.onItemClickListener {
 
     private lateinit var binding: ActivityCategoryBinding
     lateinit var listEntrees: RecyclerView
@@ -36,8 +37,19 @@ class CategoryActivity : AppCompatActivity() {
         val categoryName = intent.getStringExtra("categoryTitle")
         binding.categoryTitle.text = categoryName
         binding.categoryList.layoutManager = LinearLayoutManager(this)
-        binding.categoryList.adapter = CategoryAdapter(listOf("Salade Cesar ", "Salade nicoise", "Salade Italienne"))
-        binding.categoryListPrice.layoutManager = LinearLayoutManager(this)
-        binding.categoryListPrice.adapter = CategoryAdapter(listOf("5.90 €", "5.90 €", "5.90 €"))
+        binding.categoryList.adapter = CategoryAdapter(listOf("Salade niçoise", "Salade cesar", "Salade italienne"), this)
     }
+
+    override fun onItemClicked(item: String) {
+        val intent = Intent(this, DetailActivity::class.java)
+        intent.putExtra("dish", item)
+        startActivity(intent)
+    }
+
+
+
 }
+
+
+
+
