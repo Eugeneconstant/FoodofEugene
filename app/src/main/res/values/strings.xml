@@ -3,6 +3,11 @@
     <string name="btn_1">Entrees</string>
     <string name="btn_2">Plats</string>
     <string name="btn_3">Desserts</string>
+    <string name="entrees">Entrées</string>
+    <string name="plats">plats</string>
+    <string name="category"></string>
+    <string name="salade_cesar">Salade Cesar</string>
+    <string name="_5_90">5.90€</string>
+    <string name="textview">TextView</string>
     <string name="todo">TODO</string>
-    <string name="logo">TODO</string>
 </resources>

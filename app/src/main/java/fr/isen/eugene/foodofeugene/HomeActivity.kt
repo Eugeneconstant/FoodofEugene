@@ -2,8 +2,10 @@ package fr.isen.eugene.foodofeugene
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import fr.isen.eugene.foodofeugene.databinding.ActivityHomeBinding
+import android.util.Log.d as d1
 
 class HomeActivity : AppCompatActivity() {
 
@@ -14,22 +16,24 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btn1.setOnClickListener {
-            SCA(Type.ENTREES)
+            StartCategoryActivity(Type.ENTREES)
         }
 
         binding.btn2.setOnClickListener {
-            SCA(Type.PLATS)
+            StartCategoryActivity(Type.PLATS)
         }
 
         binding.btn3.setOnClickListener {
-            SCA(Type.DESSERTS)
+            StartCategoryActivity(Type.DESSERTS)
         }
 
     }
 
-    private fun SCA(type: Type){
-        val intent = Intent(this, category_activity::class.java)
+    private fun StartCategoryActivity(type: Type){
+        //Log.d("Home activity destroy", "destruction")
+        val intent = Intent(this, CategoryActivity::class.java)
         intent.putExtra(CATEGORY_NAME, type)
+        intent.getStringExtra("category")
         startActivity(intent)
     }
     companion object {
