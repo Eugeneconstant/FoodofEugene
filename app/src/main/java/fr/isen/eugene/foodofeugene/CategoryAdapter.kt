@@ -9,19 +9,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import fr.isen.eugene.foodofeugene.databinding.CellCategoryBinding
 
-
 class CategoryAdapter(private val Categories: List<String>, private val clickListener: CategoryActivity): RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
     override fun onCreateViewHolder(
             parent: ViewGroup,
             viewType: Int
     ): CategoryViewHolder {
         val binding  = CellCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-
         return CategoryViewHolder(binding.root)
     }
-
-
-
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         holder.title.text = Categories[position]
@@ -29,9 +24,6 @@ class CategoryAdapter(private val Categories: List<String>, private val clickLis
             clickListener.onItemClicked(Categories[position])
         }
     }
-
-
-
 
     override fun getItemCount(): Int = Categories.size
 

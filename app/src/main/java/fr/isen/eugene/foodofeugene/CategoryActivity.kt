@@ -23,13 +23,9 @@ enum class Type{
     }
 }
 
-
 class CategoryActivity : AppCompatActivity(), CategoryAdapter.onItemClickListener {
 
     private lateinit var binding: ActivityCategoryBinding
-    lateinit var listEntrees: RecyclerView
-    private var adapter: RecyclerView.Adapter<*>? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCategoryBinding.inflate(layoutInflater)
@@ -39,15 +35,11 @@ class CategoryActivity : AppCompatActivity(), CategoryAdapter.onItemClickListene
         binding.categoryList.layoutManager = LinearLayoutManager(this)
         binding.categoryList.adapter = CategoryAdapter(listOf("Salade niçoise", "Salade cesar", "Salade italienne"), this)
     }
-
     override fun onItemClicked(item: String) {
         val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra("dish", item)
         startActivity(intent)
     }
-
-
-
 }
 
 
