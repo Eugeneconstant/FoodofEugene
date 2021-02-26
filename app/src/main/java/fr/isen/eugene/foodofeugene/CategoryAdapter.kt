@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import fr.isen.eugene.foodofeugene.databinding.CellCategoryBinding
 
+
 class CategoryAdapter(private val Categories: List<String>, private val clickListener: CategoryActivity): RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
     override fun onCreateViewHolder(
             parent: ViewGroup,
