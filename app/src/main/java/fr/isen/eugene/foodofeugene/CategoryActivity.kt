@@ -1,6 +1,5 @@
 package fr.isen.eugene.foodofeugene
 
-import Model.Name
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -10,7 +9,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.google.gson.Gson
 import fr.isen.eugene.foodofeugene.HomeActivity.Companion.CATEGORY_NAME
+import fr.isen.eugene.foodofeugene.Model.Data
+import fr.isen.eugene.foodofeugene.Model.Items
 import fr.isen.eugene.foodofeugene.databinding.ActivityCategoryBinding
 import org.json.JSONObject
 
@@ -37,13 +39,11 @@ class CategoryActivity : AppCompatActivity(), CategoryAdapter.onItemClickListene
         super.onCreate(savedInstanceState)
         binding = ActivityCategoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val categoryName = Type.categoryTitle(intent.getSerializableExtra(CATEGORY_NAME) as Type)
-        binding.categoryTitle.text = categoryName
-        binding.categoryList.layoutManager = LinearLayoutManager(this)
-        binding.categoryList.adapter = CategoryAdapter(listOf("Salade cesar", "Salade italienne", "Salade nicoise"), this)
-        if (categoryName != null) {
-            getData(categoryName)
-        }
+        val categoryName = intent.getSerializableExtra(HomeActivity.CATEGORY_NAME) as? Type
+        binding.categoryTitle.text = getcategorytitle(categoryName)
+        //binding.categoryList.layoutManager = LinearLayoutManager(this)
+        //binding.categoryList.adapter = CategoryAdapter(listOf("Salade cesar", "Salade italienne", "Salade nicoise"), this)
+        getData(getcategorytitle(categoryName))
     }
     override fun onItemClicked(item: String) {
         val intent = Intent(this, DetailActivity::class.java)
@@ -51,6 +51,14 @@ class CategoryActivity : AppCompatActivity(), CategoryAdapter.onItemClickListene
         startActivity(intent)
     }
 
+    private fun getcategorytitle(item: Type?): String{
+        return when (item){
+            Type.ENTREES -> "Entrées"
+            Type.PLATS -> "Plats"
+            Type.DESSERTS -> "Desserts"
+            else -> ""
+        }
+    }
     private fun getData(category: String?){
 
         val url = "http://test.api.catering.bluecodegames.com/menu"
@@ -59,6 +67,8 @@ class CategoryActivity : AppCompatActivity(), CategoryAdapter.onItemClickListene
         val jsonObjectRequest = JsonObjectRequest(Request.Method.POST, url, DataJSON,
                 { it ->
                     Log.d("Response", it.toString())
+                    val menu = Gson().fromJson(it.toString(), Data::class.java)
+                    displayMenu(menu)
                 },
                 { error ->
                     Toast.makeText(applicationContext, "Something wrong. Try Again!", Toast.LENGTH_SHORT).show()
@@ -68,11 +78,13 @@ class CategoryActivity : AppCompatActivity(), CategoryAdapter.onItemClickListene
         RequestView.add(jsonObjectRequest)
     }
 
-    private fun parseResult(response: String, selectedItem: String?) {
-
+    private fun displayMenu(menu: Data) {
+        val categoryTitleList = menu.data[0].items
+        binding.categoryList.layoutManager = LinearLayoutManager(this)
+        binding.categoryList.adapter = CategoryAdapter(categoryTitleList, this)
     }
-}
 
+}
 
 
 

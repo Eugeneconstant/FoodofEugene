@@ -1,18 +1,17 @@
 package fr.isen.eugene.foodofeugene
 
 
-import Model.Name
 import android.view.LayoutInflater
 
 import android.view.View
-import android.view.View.inflate
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import fr.isen.eugene.foodofeugene.Model.Items
 import fr.isen.eugene.foodofeugene.databinding.CellCategoryBinding
 
 
-class CategoryAdapter(private val Categories: List<String>, private val clickListener: CategoryActivity): RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
+class CategoryAdapter(private val categories: List<Items>, private val clickListener: CategoryActivity): RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
     override fun onCreateViewHolder(
             parent: ViewGroup,
             viewType: Int
@@ -22,21 +21,19 @@ class CategoryAdapter(private val Categories: List<String>, private val clickLis
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        holder.title.text = Categories[position].toString()
+        holder.title.text = categories[position].name
         holder.layout.setOnClickListener{
-            clickListener.onItemClicked(Categories[position].toString())
+            clickListener.onItemClicked(categories[position].toString())
         }
-        /*val name = Categories[position]
-        val Price_name = holder.Price*/
 
     }
 
-    override fun getItemCount(): Int = Categories.size
+    override fun getItemCount(): Int = categories.size
 
     class CategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.cellCategoryTitle)
         //val Image: ImageView = view.findViewById(R.id.cellCategoryImage)
-        val Price: TextView = view.findViewById(R.id.cellCategoryPrice)
+        //val Price: TextView = view.findViewById(R.id.cellCategoryPrice)
         val layout = view.findViewById<View>(R.id.cellLayout)
     }
 
