@@ -1,9 +1,11 @@
 package fr.isen.eugene.foodofeugene
 
 
+import Model.Name
 import android.view.LayoutInflater
 
 import android.view.View
+import android.view.View.inflate
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -20,10 +22,13 @@ class CategoryAdapter(private val Categories: List<String>, private val clickLis
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        holder.title.text = Categories[position]
+        holder.title.text = Categories[position].toString()
         holder.layout.setOnClickListener{
-            clickListener.onItemClicked(Categories[position])
+            clickListener.onItemClicked(Categories[position].toString())
         }
+        /*val name = Categories[position]
+        val Price_name = holder.Price*/
+
     }
 
     override fun getItemCount(): Int = Categories.size
@@ -34,6 +39,8 @@ class CategoryAdapter(private val Categories: List<String>, private val clickLis
         val Price: TextView = view.findViewById(R.id.cellCategoryPrice)
         val layout = view.findViewById<View>(R.id.cellLayout)
     }
+
+
 
     interface onItemClickListener{
         fun onItemClicked(item: String)

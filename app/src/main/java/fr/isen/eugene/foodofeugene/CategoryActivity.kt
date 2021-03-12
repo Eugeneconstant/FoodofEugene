@@ -1,14 +1,13 @@
 package fr.isen.eugene.foodofeugene
 
+import Model.Name
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
-import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import fr.isen.eugene.foodofeugene.HomeActivity.Companion.CATEGORY_NAME
@@ -40,8 +39,8 @@ class CategoryActivity : AppCompatActivity(), CategoryAdapter.onItemClickListene
         setContentView(binding.root)
         val categoryName = Type.categoryTitle(intent.getSerializableExtra(CATEGORY_NAME) as Type)
         binding.categoryTitle.text = categoryName
-        //binding.categoryList.layoutManager = LinearLayoutManager(this)
-        //binding.categoryList.adapter = CategoryAdapter(listOf("Salade niçoise", "Salade cesar", "Salade italienne"), this)
+        binding.categoryList.layoutManager = LinearLayoutManager(this)
+        binding.categoryList.adapter = CategoryAdapter(listOf("Salade cesar", "Salade italienne", "Salade nicoise"), this)
         if (categoryName != null) {
             getData(categoryName)
         }
@@ -56,19 +55,24 @@ class CategoryActivity : AppCompatActivity(), CategoryAdapter.onItemClickListene
 
         val url = "http://test.api.catering.bluecodegames.com/menu"
         val RequestView = Volley.newRequestQueue(this)
-        val  DataJSON = JSONObject().put("id_shop", 1)
+        val DataJSON = JSONObject().put("id_shop", 1)
         val jsonObjectRequest = JsonObjectRequest(Request.Method.POST, url, DataJSON,
                 { it ->
                     Log.d("Response", it.toString())
                 },
                 { error ->
+                    Toast.makeText(applicationContext, "Something wrong. Try Again!", Toast.LENGTH_SHORT).show()
                     error.printStackTrace()
                 }
         )
         RequestView.add(jsonObjectRequest)
     }
 
+    private fun parseResult(response: String, selectedItem: String?) {
+
+    }
 }
+
 
 
 

@@ -1,8 +1,7 @@
 package Model
 
-import kotlinx.serialization.Serializable
+import kotlinx.serialization.SerialName
 
-@Serializable
-data class Images(val name: Int){
 
-}
+data class Images(@SerialName("images") val url: String)
+

@@ -1,8 +1,6 @@
 package Model
 
-import kotlinx.serialization.Serializable
+import kotlinx.serialization.SerialName
 
-@Serializable
-data class Prices(val price : Int){
+data class Prices(@SerialName("price") val price: Int, @SerialName("id") val id_price: Int)
 
-}

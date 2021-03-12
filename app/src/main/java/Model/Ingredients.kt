@@ -1,8 +1,6 @@
 package Model
 
-import kotlinx.serialization.Serializable
+import kotlinx.serialization.SerialName
 
-@Serializable
-data class Ingredients(val string: String) {
-
-}
+data class Ingredients(@SerialName("id") val id : Int,
+                       @SerialName("name_fr") val name_fr : String)
