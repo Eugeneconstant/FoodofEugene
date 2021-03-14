@@ -22,8 +22,9 @@ class CategoryAdapter(private val categories: List<Items>, private val clickList
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         holder.title.text = categories[position].name
+        holder.Price.text = categories[position].prices.price
         holder.layout.setOnClickListener{
-            clickListener.onItemClicked(categories[position].toString())
+            //clickListener.onItemClicked(categories[position].name)
         }
 
     }
@@ -33,14 +34,14 @@ class CategoryAdapter(private val categories: List<Items>, private val clickList
     class CategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.cellCategoryTitle)
         //val Image: ImageView = view.findViewById(R.id.cellCategoryImage)
-        //val Price: TextView = view.findViewById(R.id.cellCategoryPrice)
+        val Price: TextView = view.findViewById(R.id.cellCategoryPrice)
         val layout = view.findViewById<View>(R.id.cellLayout)
     }
 
 
 
     interface onItemClickListener{
-        fun onItemClicked(item: String)
+        fun onItemClicked(item: Items)
     }
     
 }
