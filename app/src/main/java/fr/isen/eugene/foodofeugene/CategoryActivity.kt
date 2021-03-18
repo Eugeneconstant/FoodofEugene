@@ -1,9 +1,9 @@
 package fr.isen.eugene.foodofeugene
 
-import android.content.ClipData
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Adapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,7 +14,6 @@ import com.google.gson.Gson
 import fr.isen.eugene.foodofeugene.HomeActivity.Companion.CATEGORY_NAME
 import fr.isen.eugene.foodofeugene.Model.Data
 import fr.isen.eugene.foodofeugene.Model.Items
-import fr.isen.eugene.foodofeugene.Model.Prices
 import fr.isen.eugene.foodofeugene.databinding.ActivityCategoryBinding
 import org.json.JSONObject
 
@@ -47,9 +46,9 @@ class CategoryActivity : AppCompatActivity(), CategoryAdapter.onItemClickListene
     }
 
     override fun onItemClicked(item: Items) {
-        /*val intent = Intent(this, DetailActivity::class.java)
+        val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra("dish", item)
-        startActivity(intent)*/
+        startActivity(intent)
     }
 
     private fun getcategorytitle(item: Type?): String{
@@ -69,7 +68,6 @@ class CategoryActivity : AppCompatActivity(), CategoryAdapter.onItemClickListene
                 { it ->
                     Log.d("Response", it.toString())
                     val menu = Gson().fromJson(it.toString(), Data::class.java)
-
                     displayMenu(menu, category)
 
                 },
@@ -84,8 +82,9 @@ class CategoryActivity : AppCompatActivity(), CategoryAdapter.onItemClickListene
     private fun displayMenu(menu: Data, categoryTitle: String) {
         val categoryTitleList = menu.data.firstOrNull{ it.name == categoryTitle }?.items ?: listOf()
         binding.categoryList.layoutManager = LinearLayoutManager(this)
-        binding.categoryList.adapter = CategoryAdapter(categoryTitleList, this)
+        binding.categoryList.adapter =   CategoryAdapter(categoryTitleList, this)
     }
+
 
 
 }
