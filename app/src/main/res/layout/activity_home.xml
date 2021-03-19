@@ -43,21 +43,21 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="374dp"
-        android:layout_height="406dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="264dp"
+        android:layout_width="365dp"
+        android:layout_height="345dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="384dp"
+        android:contentDescription="@string/logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/food_of_eugene__1_"
-        android:contentDescription="@string/logo" />
+        app:srcCompat="@drawable/food_of_eugene__1_" />
 
     <Button
         android:id="@+id/ble"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="300dp"
-        android:layout_marginTop="556dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="640dp"
         android:text="@string/ble"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
