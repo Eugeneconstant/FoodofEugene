@@ -47,9 +47,19 @@
         android:layout_height="406dp"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="264dp"
-        android:contentDescription="@string/todo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/food_of_eugene__1_" />
+        app:srcCompat="@drawable/food_of_eugene__1_"
+        android:contentDescription="@string/logo" />
+
+    <Button
+        android:id="@+id/ble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="556dp"
+        android:text="@string/ble"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

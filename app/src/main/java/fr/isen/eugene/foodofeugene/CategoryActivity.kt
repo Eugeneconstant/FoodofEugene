@@ -19,7 +19,7 @@ import org.json.JSONObject
 
 
 enum class Type{
-    ENTREES, PLATS, DESSERTS;
+    ENTREES, PLATS, DESSERTS, BLE;
 
     companion object  {
         fun categoryTitle(type: Type?): String{
@@ -27,6 +27,7 @@ enum class Type{
                 ENTREES -> "Entrees"
                 PLATS -> "Plats"
                 DESSERTS -> "Desserts"
+                BLE -> "BLE"
                 else -> ""
             }
         }

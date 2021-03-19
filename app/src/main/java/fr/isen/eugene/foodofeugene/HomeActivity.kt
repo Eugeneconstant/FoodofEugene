@@ -27,6 +27,15 @@ class HomeActivity : AppCompatActivity() {
             StartCategoryActivity(Type.DESSERTS)
         }
 
+        binding.ble.setOnClickListener {
+            StartBLEScanActivity(Type.BLE)
+        }
+
+    }
+
+    private fun StartBLEScanActivity(type: Type){
+        val intent = Intent(this, BLEScanActivity::class.java)
+        startActivity(intent)
     }
 
     private fun StartCategoryActivity(type: Type){
