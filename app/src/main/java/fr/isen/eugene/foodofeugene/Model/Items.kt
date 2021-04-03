@@ -18,5 +18,5 @@ data class Items(@SerializedName("id") val id: String,
     } else {
         null
     }
-    fun getIngredients(): String = ingredients.map(Ingredients::name_fr).joinToString { "," }
+    fun getIngredients(): String = ingredients.map(Ingredients::name_fr).joinToString( " , " )
 }

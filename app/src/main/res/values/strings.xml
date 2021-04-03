@@ -23,4 +23,5 @@
     <string name="ble_scan_pause_title">Start BLE en cours...</string>
     <string name="pause">pause</string>
     <string name="devicetitle">TextView</string>
+    <string name="carousel">Caroussel</string>
 </resources>

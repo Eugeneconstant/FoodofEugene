@@ -28,20 +28,16 @@ class BLEScanActivity() : AppCompatActivity() {
     private var bluetoothAdapter: BluetoothAdapter? = null
     private var bluetoothLeScanner: BluetoothLeScanner? = bluetoothAdapter?.bluetoothLeScanner
     private var scanning = false
-    private var listDevice = mutableListOf<BluetoothDevice>()
+    private lateinit var leDeviceListAdapter: DeviceAdapter
     private val handler = Handler()
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBLEScanBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
         bluetoothAdapter = getSystemService(BluetoothManager::class.java)?.adapter
-
         startBLEifPossible()
-
-
+        isDeviceHasBLESupport()
         binding.bleScanPlayPauseAction.setOnClickListener {
             togglePlayPauseAction()
         }
@@ -49,8 +45,6 @@ class BLEScanActivity() : AppCompatActivity() {
         binding.bleScanPlayTitle.setOnClickListener{
             togglePlayPauseAction()
         }
-
-
     }
 
     private fun startBLEifPossible() {
@@ -108,12 +102,13 @@ class BLEScanActivity() : AppCompatActivity() {
             }
         }
     }
-    private var leDeviceListAdapter = DeviceAdapter(listDevice)
+
     // Device scan callback.
     private val leScanCallback: ScanCallback = object : ScanCallback() {
         override fun onScanResult(callbackType: Int, result: ScanResult) {
             super.onScanResult(callbackType, result)
-            leDeviceListAdapter.addDevice(result.device)
+            val scannerName = result.scanRecord?.deviceName.toString()
+            leDeviceListAdapter.addDevice(result)
             leDeviceListAdapter.notifyDataSetChanged()
         }
     }

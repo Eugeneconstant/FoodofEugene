@@ -1,6 +1,8 @@
 package fr.isen.eugene.foodofeugene
 
 import android.bluetooth.BluetoothDevice
+import android.bluetooth.le.ScanRecord
+import android.bluetooth.le.ScanResult
 import android.view.LayoutInflater
 
 import android.view.View
@@ -10,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import fr.isen.eugene.foodofeugene.databinding.CellCategoryBinding
 
 
-class DeviceAdapter(private val listdevice: MutableList<BluetoothDevice>): RecyclerView.Adapter<DeviceAdapter.DeviceViewHolder>() {
+class DeviceAdapter(private val listdevice: MutableList<ScanResult>): RecyclerView.Adapter<DeviceAdapter.DeviceViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -20,25 +22,20 @@ class DeviceAdapter(private val listdevice: MutableList<BluetoothDevice>): Recyc
     }
 
     override fun onBindViewHolder(holder: DeviceViewHolder, position: Int) {
-        holder.titledevice.text = listdevice[position].toString()
+        holder.titledevice.text = listdevice[position].device.toString()
         holder.layout.setOnClickListener{
-            //clickListener.onItemClicked(listdevice[position])
+
         }
     }
-    fun addDevice(device: BluetoothDevice){
-        if(!listdevice.contains(device))
-            listdevice.add(device)
+    fun addDevice(appareilData: ScanResult){
+        if(!listdevice.contains(appareilData))
+            listdevice.add(appareilData)
     }
+
     override fun getItemCount(): Int = listdevice.size
 
     class DeviceViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val titledevice: TextView = view.findViewById(R.id.devicetitle)
         val layout = view.findViewById<View>(R.id.cellDevice)
     }
-
-    interface onItemClickListener {
-        fun onItemClicked(device: BluetoothDevice)
-    }
-
-
 }

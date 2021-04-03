@@ -8,19 +8,42 @@
 
     <TextView
         android:id="@+id/itemTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="68dp"
+        android:layout_width="374dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="328dp"
+        android:fontFamily="sans-serif-light"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/ingredientsTextView"
-        android:layout_width="180dp"
-        android:layout_height="102dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="152dp"
+        android:layout_width="349dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="452dp"
+        android:fontFamily="monospace"
+        android:textAlignment="center"
+        android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.synnapps.carouselview.CarouselView
+        android:id="@+id/carousel"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:fillColor="#FFFFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:pageColor="#00000000"
+        app:radius="6dp"
+        app:slideInterval="3000"
+        app:strokeColor="#FF777777"
+        app:strokeWidth="1dp" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
