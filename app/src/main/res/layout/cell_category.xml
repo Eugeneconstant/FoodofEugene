@@ -9,13 +9,14 @@
 
     <TextView
         android:id="@+id/cellCategoryTitle"
-        android:layout_width="374dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="32dp"
-        android:fontFamily="sans-serif-medium"
+        android:layout_width="405dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/aclonica"
+        android:textAlignment="center"
         android:textColor="#1565C0"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,18 +24,18 @@
         android:id="@+id/cellCategoryPrice"
         android:layout_width="63dp"
         android:layout_height="28dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="72dp"
-        android:fontFamily="sans-serif-condensed-light"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="88dp"
+        android:fontFamily="serif"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/images_api"
-        android:layout_width="106dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="248dp"
+        android:layout_width="163dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="132dp"
         android:layout_marginTop="76dp"
         android:contentDescription="@string/images_api"
         app:layout_constraintStart_toStartOf="parent"

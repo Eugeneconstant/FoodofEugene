@@ -24,4 +24,11 @@
     <string name="pause">pause</string>
     <string name="devicetitle">TextView</string>
     <string name="carousel">Caroussel</string>
+    <string name="button">Button</string>
+    <string name="btn_plus">+</string>
+    <string name="btn_moins">-</string>
+    <string name="pricedetail">price :</string>
+    <string name="img_ble" />
+    <string name="plus" />
+    <string name="moins" />
 </resources>

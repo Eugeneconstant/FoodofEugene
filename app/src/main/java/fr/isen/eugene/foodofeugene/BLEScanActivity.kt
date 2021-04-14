@@ -8,7 +8,6 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import android.widget.Toast.*
 import android.Manifest
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.le.BluetoothLeScanner
@@ -16,13 +15,14 @@ import android.bluetooth.le.ScanCallback
 import android.bluetooth.le.ScanResult
 import android.os.Handler
 import android.util.Log
+import android.widget.Toast.LENGTH_SHORT
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import fr.isen.eugene.foodofeugene.databinding.ActivityBLEScanBinding
 
-class BLEScanActivity() : AppCompatActivity() {
+class BLEScanActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBLEScanBinding
     private var isScanning = false
     private var bluetoothAdapter: BluetoothAdapter? = null
@@ -117,11 +117,13 @@ class BLEScanActivity() : AppCompatActivity() {
         isScanning = !isScanning
         if(isScanning){
             binding.bleScanPlayTitle.text = getString(R.string.ble_scan_pause_title)
+            binding.bleScanPlayPauseAction.setImageResource(R.drawable.ic_pause)
             binding.loadingProgress.isVisible = true
             binding.divider.isVisible = false
             scanLeDevice()
         }else{
             binding.bleScanPlayTitle.text = getString(R.string.ble_scan_play_title)
+            binding.bleScanPlayPauseAction.setImageResource(R.drawable.ic_play)
             binding.loadingProgress.isVisible = false
             binding.divider.isVisible = true
         }

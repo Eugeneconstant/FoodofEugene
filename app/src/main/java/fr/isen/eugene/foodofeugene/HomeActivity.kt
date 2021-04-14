@@ -2,10 +2,9 @@ package fr.isen.eugene.foodofeugene
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import fr.isen.eugene.foodofeugene.databinding.ActivityHomeBinding
-import android.util.Log.d as d1
+
 
 class HomeActivity : AppCompatActivity() {
 

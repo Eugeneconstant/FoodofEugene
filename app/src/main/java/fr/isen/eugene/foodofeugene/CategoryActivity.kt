@@ -21,7 +21,6 @@ import fr.isen.eugene.foodofeugene.DetailActivity as DetailActivity
 
 enum class Type{
     ENTREES, PLATS, DESSERTS, BLE;
-
     companion object  {
         fun categoryTitle(type: Type?): String{
             return when (type){
@@ -44,10 +43,9 @@ class CategoryActivity : AppCompatActivity() {
         setContentView(binding.root)
         val categoryName = intent.getSerializableExtra(CATEGORY_NAME) as Type?
         binding.categoryTitle.text = categoryTitle(categoryName)
-        getData(getcategorytitle(categoryName))
+        getData(getCategorytitle(categoryName))
     }
-
-    private fun getcategorytitle(item: Type?): String{
+    private fun getCategorytitle(item: Type?): String{
         return when (item){
             Type.ENTREES -> "Entrées"
             Type.PLATS -> "Plats"
@@ -56,7 +54,6 @@ class CategoryActivity : AppCompatActivity() {
         }
     }
     private fun getData(category: String?){
-
         val url = "http://test.api.catering.bluecodegames.com/menu"
         val RequestView = Volley.newRequestQueue(this)
         val DataJSON = JSONObject().put("id_shop", 1)
@@ -72,13 +69,11 @@ class CategoryActivity : AppCompatActivity() {
         )
         RequestView.add(jsonObjectRequest)
     }
-
     private fun displayMenu(res: String, categoryTitle: String?) {
         val dataResult = GsonBuilder().create().fromJson(res, Data::class.java)
         val items = dataResult.data.firstOrNull{ it.name == categoryTitle }
         loadList(items?.items)
     }
-
     private fun loadList(items: List<Items>?) {
         items?.let {
             val adapter = CategoryAdapter(it) { item ->

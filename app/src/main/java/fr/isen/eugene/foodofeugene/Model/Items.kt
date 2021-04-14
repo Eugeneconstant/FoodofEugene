@@ -11,7 +11,7 @@ data class Items(@SerializedName("id") val id: String,
                  @SerializedName("images") val images: List<String>
 ): Serializable{
 
-    fun getPrice() = prices[0].price + "€"
+    fun getPrice() = prices[0].price.toDouble()
 
     fun getFirstPicture() = if (images.isNotEmpty() && images[0].isNotEmpty()){
         images[0]

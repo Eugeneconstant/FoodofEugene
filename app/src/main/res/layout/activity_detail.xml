@@ -8,14 +8,14 @@
 
     <TextView
         android:id="@+id/itemTitle"
-        android:layout_width="374dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="328dp"
+        android:layout_width="365dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="224dp"
         android:fontFamily="sans-serif-light"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="24sp"
+        android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,10 +24,11 @@
         android:id="@+id/ingredientsTextView"
         android:layout_width="349dp"
         android:layout_height="46dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="452dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="392dp"
         android:fontFamily="monospace"
         android:textAlignment="center"
+        android:textSize="18sp"
         android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -44,6 +45,53 @@
         app:slideInterval="3000"
         app:strokeColor="#FF777777"
         app:strokeWidth="1dp" />
+
+    <TextView
+        android:id="@+id/detail_price"
+        android:layout_width="213dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="332dp"
+        android:background="#283593"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/countitem"
+        android:layout_width="69dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="196dp"
+        android:layout_marginTop="496dp"
+        android:textAlignment="center"
+        android:textColor="#0277BD"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/plus"
+        android:layout_width="92dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="488dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_add_24"
+        android:contentDescription="@string/moins" />
+
+    <ImageView
+        android:id="@+id/moins"
+        android:layout_width="87dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="488dp"
+        app:layout_constraintStart_toStartOf="@+id/countitem"
+        app:layout_constraintTop_toTopOf="@+id/carousel"
+        app:srcCompat="@drawable/ic_baseline_horizontal_rule_24"
+        android:contentDescription="@string/moins" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

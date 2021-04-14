@@ -9,15 +9,15 @@
     <ProgressBar
         android:id="@+id/loadingProgress"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="410dp"
-        android:layout_height="13dp"
-        android:layout_marginTop="96dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
         android:indeterminate="true"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/ble_scan_play_title" />
 
     <ImageView
         android:id="@+id/bleScanPlayPauseAction"
@@ -27,7 +27,7 @@
         android:layout_marginEnd="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_play_arrow_24"
+        app:srcCompat="@drawable/ic_play"
         android:contentDescription="@string/image_view" />
 
     <TextView
@@ -53,11 +53,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ble_recyclerView"
-        android:layout_width="178dp"
-        android:layout_height="403dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="164dp"
+        android:layout_width="274dp"
+        android:layout_height="427dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="56dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loadingProgress" />
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
