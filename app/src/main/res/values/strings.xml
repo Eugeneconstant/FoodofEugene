@@ -22,7 +22,7 @@
     <string name="ble_scan_play_title">Lancer le scan BLE</string>
     <string name="ble_scan_pause_title">Start BLE en cours...</string>
     <string name="pause">pause</string>
-    <string name="devicetitle">TextView</string>
+    <string name="devicetitle">Name : </string>
     <string name="carousel">Caroussel</string>
     <string name="button">Button</string>
     <string name="btn_plus">+</string>
@@ -31,4 +31,5 @@
     <string name="img_ble" />
     <string name="plus" />
     <string name="moins" />
+    <string name="addressDevice">Address::</string>
 </resources>

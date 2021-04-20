@@ -41,7 +41,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:id="@+id/divider"
+        android:id="@+id/viewdevice"
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_marginTop="36dp"
@@ -58,6 +58,6 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="56dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider" />
+        app:layout_constraintTop_toBottomOf="@+id/viewdevice" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

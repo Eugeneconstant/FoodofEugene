@@ -26,9 +26,9 @@ class BLEScanActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBLEScanBinding
     private var isScanning = false
     private var bluetoothAdapter: BluetoothAdapter? = null
-    private var bluetoothLeScanner: BluetoothLeScanner? = bluetoothAdapter?.bluetoothLeScanner
+    private var bluetoothLeScanner: BluetoothLeScanner? = null
     private var scanning = false
-    private lateinit var leDeviceListAdapter: DeviceAdapter
+    private var leDeviceListAdapter: DeviceAdapter? = null
     private val handler = Handler()
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +40,7 @@ class BLEScanActivity : AppCompatActivity() {
         isDeviceHasBLESupport()
         binding.bleScanPlayPauseAction.setOnClickListener {
             togglePlayPauseAction()
+            isDeviceHasBLESupport()
         }
 
         binding.bleScanPlayTitle.setOnClickListener{
@@ -83,8 +84,14 @@ class BLEScanActivity : AppCompatActivity() {
         binding.bleRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.bleRecyclerView.adapter = leDeviceListAdapter
     }
-    private fun isDeviceHasBLESupport(): Boolean =
-        packageManager.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)
+
+    private fun isDeviceHasBLESupport(): Boolean {
+        if(!packageManager.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) {
+            Toast.makeText(this, "Cet appareil n'est pas compatible, sorry", Toast.LENGTH_SHORT).show()
+        }
+        return packageManager.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)
+    }
+
     // Stops scanning after 10 seconds.
     private val SCAN_PERIOD: Long = 10000
     private fun scanLeDevice() {
@@ -107,9 +114,8 @@ class BLEScanActivity : AppCompatActivity() {
     private val leScanCallback: ScanCallback = object : ScanCallback() {
         override fun onScanResult(callbackType: Int, result: ScanResult) {
             super.onScanResult(callbackType, result)
-            val scannerName = result.scanRecord?.deviceName.toString()
-            leDeviceListAdapter.addDevice(result)
-            leDeviceListAdapter.notifyDataSetChanged()
+            leDeviceListAdapter?.addDevice(result)
+            leDeviceListAdapter?.notifyDataSetChanged()
         }
     }
 
@@ -119,13 +125,13 @@ class BLEScanActivity : AppCompatActivity() {
             binding.bleScanPlayTitle.text = getString(R.string.ble_scan_pause_title)
             binding.bleScanPlayPauseAction.setImageResource(R.drawable.ic_pause)
             binding.loadingProgress.isVisible = true
-            binding.divider.isVisible = false
+            binding.viewdevice.isVisible = false
             scanLeDevice()
         }else{
             binding.bleScanPlayTitle.text = getString(R.string.ble_scan_play_title)
             binding.bleScanPlayPauseAction.setImageResource(R.drawable.ic_play)
             binding.loadingProgress.isVisible = false
-            binding.divider.isVisible = true
+            binding.viewdevice.isVisible = true
         }
     }
 
