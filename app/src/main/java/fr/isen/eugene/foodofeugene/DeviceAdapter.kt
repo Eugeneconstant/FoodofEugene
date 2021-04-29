@@ -4,14 +4,12 @@ import android.bluetooth.le.ScanResult
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import fr.isen.eugene.foodofeugene.databinding.CellCategoryBinding
 import fr.isen.eugene.foodofeugene.databinding.CellDeviceBinding
 
 
-class DeviceAdapter(private val listdevice: MutableList<ScanResult>): RecyclerView.Adapter<DeviceAdapter.DeviceViewHolder>() {
+class DeviceAdapter(private val listdevice: MutableList<ScanResult>, private val clickListener: (ScanResult) -> Unit ): RecyclerView.Adapter<DeviceAdapter.DeviceViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -21,10 +19,10 @@ class DeviceAdapter(private val listdevice: MutableList<ScanResult>): RecyclerVi
     }
 
     override fun onBindViewHolder(holder: DeviceViewHolder, position: Int) {
-        holder.deviceAddress.text = listdevice[position].device.toString()
-        holder.titledevice.text = listdevice[position].scanRecord?.deviceName.toString()
+        holder.deviceAddress.text = "Address : " + listdevice[position].device.toString()
+        holder.titledevice.text = "Name : " + listdevice[position].scanRecord?.deviceName.toString()
         holder.layout.setOnClickListener{
-
+            clickListener.invoke(listdevice[position])
         }
     }
     fun addDevice(appareilData: ScanResult){

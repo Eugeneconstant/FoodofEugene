@@ -32,4 +32,8 @@
     <string name="plus" />
     <string name="moins" />
     <string name="addressDevice">Address::</string>
+    <string name="name">Name :</string>
+    <string name="address">Address::</string>
+    <string name="img_view">TODO</string>
+    <string name="description_text">Description Text</string>
 </resources>

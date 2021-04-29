@@ -20,7 +20,9 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
+import fr.isen.eugene.foodofeugene.Model.Device
 import fr.isen.eugene.foodofeugene.databinding.ActivityBLEScanBinding
+import java.util.ArrayList
 
 class BLEScanActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBLEScanBinding
@@ -30,6 +32,7 @@ class BLEScanActivity : AppCompatActivity() {
     private var scanning = false
     private var leDeviceListAdapter: DeviceAdapter? = null
     private val handler = Handler()
+
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +49,7 @@ class BLEScanActivity : AppCompatActivity() {
         binding.bleScanPlayTitle.setOnClickListener{
             togglePlayPauseAction()
         }
+
     }
 
     private fun startBLEifPossible() {
@@ -80,7 +84,11 @@ class BLEScanActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerDevice(){
-        leDeviceListAdapter = DeviceAdapter(mutableListOf())
+        leDeviceListAdapter = DeviceAdapter(mutableListOf()) {
+            val intent =  Intent(this, BLEScanDetailActivity::class.java)
+            intent.putExtra(BluetoothDevice.EXTRA_DEVICE, it.device)
+            startActivity(intent)
+        }
         binding.bleRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.bleRecyclerView.adapter = leDeviceListAdapter
     }
