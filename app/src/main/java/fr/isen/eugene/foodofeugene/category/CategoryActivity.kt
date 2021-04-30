@@ -14,9 +14,10 @@ import fr.isen.eugene.foodofeugene.HomeActivity.Companion.CATEGORY_NAME
 import fr.isen.eugene.foodofeugene.Model.Data
 import fr.isen.eugene.foodofeugene.Model.Items
 import fr.isen.eugene.foodofeugene.Type.Companion.categoryTitle
+import fr.isen.eugene.foodofeugene.category.CategoryAdapter
 import fr.isen.eugene.foodofeugene.databinding.ActivityCategoryBinding
 import org.json.JSONObject
-import fr.isen.eugene.foodofeugene.DetailActivity as DetailActivity
+import fr.isen.eugene.foodofeugene.detail.DetailActivity
 
 
 enum class Type{

@@ -1,8 +1,6 @@
-package fr.isen.eugene.foodofeugene
+package fr.isen.eugene.foodofeugene.ble.detail_ble
 
 import android.bluetooth.BluetoothDevice
-import android.bluetooth.le.ScanRecord
-import android.bluetooth.le.ScanResult
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -28,12 +26,10 @@ class BLEScanDetailActivity : AppCompatActivity() {
 
         binding.namedevice.text = listdevice?.name
         binding.deviceAdress.text = listdevice?.address
-
         binding.devicecharacteristic.layoutManager = LinearLayoutManager(this)
         devAdapter = DetailBleAdapter(deviceList)
         binding.devicecharacteristic.adapter = devAdapter
         devAdapter.notifyDataSetChanged()
-
         val detail1 = Device("Coucou", "uuid", "proprietes", "10")
         deviceList.add(detail1)
 

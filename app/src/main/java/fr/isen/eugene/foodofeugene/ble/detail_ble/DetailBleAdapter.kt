@@ -1,11 +1,10 @@
-package fr.isen.eugene.foodofeugene
+package fr.isen.eugene.foodofeugene.ble.detail_ble
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import fr.isen.eugene.foodofeugene.Model.Device
-import fr.isen.eugene.foodofeugene.databinding.ActivityBLEScanDetailBinding
 import fr.isen.eugene.foodofeugene.databinding.CellDeviceDetailBinding
 
 class DetailBleAdapter(private var deviceList: List<Device>): RecyclerView.Adapter<DetailBleAdapter.ViewHolder>() {

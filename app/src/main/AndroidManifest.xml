@@ -16,9 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodOfEugene"
         android:usesCleartextTraffic="true">
-        <activity android:name=".BLEScanDetailActivity"></activity>
-        <activity android:name=".BLEScanActivity" />
-        <activity android:name=".DetailActivity" />
+        <activity android:name=".ble.detail_ble.BLEScanDetailActivity"></activity>
+        <activity android:name=".ble.BLEScanActivity" />
+        <activity android:name=".detail.DetailActivity" />
         <activity android:name=".CategoryActivity" />
         <activity android:name=".HomeActivity">
             <intent-filter>

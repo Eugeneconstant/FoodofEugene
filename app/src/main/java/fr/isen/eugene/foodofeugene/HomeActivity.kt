@@ -3,6 +3,7 @@ package fr.isen.eugene.foodofeugene
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import fr.isen.eugene.foodofeugene.ble.BLEScanActivity
 import fr.isen.eugene.foodofeugene.databinding.ActivityHomeBinding
 
 

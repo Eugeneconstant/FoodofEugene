@@ -1,4 +1,4 @@
-package fr.isen.eugene.foodofeugene
+package fr.isen.eugene.foodofeugene.ble
 
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothManager
@@ -9,20 +9,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import android.Manifest
-import android.bluetooth.BluetoothDevice
 import android.bluetooth.le.BluetoothLeScanner
 import android.bluetooth.le.ScanCallback
 import android.bluetooth.le.ScanResult
 import android.os.Handler
-import android.util.Log
 import android.widget.Toast.LENGTH_SHORT
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
-import fr.isen.eugene.foodofeugene.Model.Device
+import fr.isen.eugene.foodofeugene.R
 import fr.isen.eugene.foodofeugene.databinding.ActivityBLEScanBinding
-import java.util.ArrayList
 
 class BLEScanActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBLEScanBinding
@@ -69,7 +66,7 @@ class BLEScanActivity : AppCompatActivity() {
                     }
             else -> {
                 //on peut faire le ble
-                Log.d("ScanDevices", "onRequestPermissionsResult(not PERMISSION")
+                //Log.d("ScanDevices", "onRequestPermissionsResult(not PERMISSION)")
                 bluetoothLeScanner = bluetoothAdapter?.bluetoothLeScanner
                 initRecyclerDevice()
             }
@@ -85,9 +82,9 @@ class BLEScanActivity : AppCompatActivity() {
 
     private fun initRecyclerDevice(){
         leDeviceListAdapter = DeviceAdapter(mutableListOf()) {
-            val intent =  Intent(this, BLEScanDetailActivity::class.java)
+            /*val intent =  Intent(this, BLEScanDetailActivity::class.java)
             intent.putExtra(BluetoothDevice.EXTRA_DEVICE, it.device)
-            startActivity(intent)
+            startActivity(intent)*/
         }
         binding.bleRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.bleRecyclerView.adapter = leDeviceListAdapter
@@ -101,7 +98,7 @@ class BLEScanActivity : AppCompatActivity() {
     }
 
     // Stops scanning after 10 seconds.
-    private val SCAN_PERIOD: Long = 10000
+
     private fun scanLeDevice() {
         bluetoothLeScanner?.let { scanner ->
             if (!scanning) { // Stops scanning after a pre-defined scan period.
@@ -146,6 +143,7 @@ class BLEScanActivity : AppCompatActivity() {
     companion object{
         const private val REQUEST_ENABLE_BT = 33
         const private val REQUEST_PERMISSION_LOCATION = 33
+        private val SCAN_PERIOD: Long = 10000
     }
 
 }

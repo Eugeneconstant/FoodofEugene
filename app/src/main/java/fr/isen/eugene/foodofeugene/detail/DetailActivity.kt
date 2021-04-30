@@ -1,4 +1,4 @@
-package fr.isen.eugene.foodofeugene
+package fr.isen.eugene.foodofeugene.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

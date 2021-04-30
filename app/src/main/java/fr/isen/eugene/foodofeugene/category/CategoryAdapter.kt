@@ -1,4 +1,4 @@
-package fr.isen.eugene.foodofeugene
+package fr.isen.eugene.foodofeugene.category
 
 
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import fr.isen.eugene.foodofeugene.Model.Items
+import fr.isen.eugene.foodofeugene.R
 import fr.isen.eugene.foodofeugene.databinding.CellCategoryBinding
 
 
