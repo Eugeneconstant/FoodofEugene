@@ -19,7 +19,6 @@ import fr.isen.eugene.foodofeugene.databinding.ActivityCategoryBinding
 import org.json.JSONObject
 import fr.isen.eugene.foodofeugene.detail.DetailActivity
 
-
 enum class Type{
     ENTREES, PLATS, DESSERTS, BLE;
     companion object  {

@@ -36,4 +36,10 @@
     <string name="address">Address::</string>
     <string name="img_view">TODO</string>
     <string name="description_text">Description Text</string>
+
+    <string name="ble_device_status">Statis : %1$s</string>
+    <string name="ble_device_status_connecting">Connexion en cours</string>
+    <string name="ble_device_status_connected">Connecté</string>
+    <string name="ble_device_status_disconnected">Deconnecté</string>
+    <string name="ble_device_status_disconnecting">Deconnexion en cours</string>
 </resources>

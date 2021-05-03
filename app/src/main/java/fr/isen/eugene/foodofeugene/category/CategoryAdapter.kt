@@ -2,7 +2,6 @@ package fr.isen.eugene.foodofeugene.category
 
 
 import android.view.LayoutInflater
-
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -12,7 +11,6 @@ import com.squareup.picasso.Picasso
 import fr.isen.eugene.foodofeugene.Model.Items
 import fr.isen.eugene.foodofeugene.R
 import fr.isen.eugene.foodofeugene.databinding.CellCategoryBinding
-
 
 class CategoryAdapter(private val categories: List<Items>, private val clickListener: (Items) -> Unit): RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
     override fun onCreateViewHolder(

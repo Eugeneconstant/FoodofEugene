@@ -7,6 +7,7 @@ import com.squareup.picasso.Picasso
 import com.synnapps.carouselview.ImageListener
 import fr.isen.eugene.foodofeugene.Model.Items
 import fr.isen.eugene.foodofeugene.databinding.ActivityDetailBinding
+import kotlin.math.max
 
 class DetailActivity : AppCompatActivity() {
     private var itemCount = 1
@@ -33,22 +34,21 @@ class DetailActivity : AppCompatActivity() {
             }
             binding.carousel.setImageListener(imageListener)
         }
-
         binding.plus.setOnClickListener {
             itemCount++
             binding.countitem.text = itemCount.toString()
             if(detail !=null)
                 getTotalPrice(detail, itemCount)
         }
-
         binding.moins.setOnClickListener {
             itemCount--
+            itemCount = max(0, itemCount - 1)
             binding.countitem.text = itemCount.toString()
             if(detail !=null)
                     getTotalPrice(detail, itemCount)
         }
-
     }
+
     private fun getTotalPrice(detail: Items, quantity: Int){
         val total = quantity * detail.getPrice()
         "Price :  $total €".also {
