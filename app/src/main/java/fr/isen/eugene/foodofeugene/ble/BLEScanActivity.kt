@@ -100,6 +100,7 @@ class BLEScanActivity : AppCompatActivity() {
             super.onScanResult(callbackType, result)
             leDeviceListAdapter?.addDevice(result)
             leDeviceListAdapter?.notifyDataSetChanged()
+
         }
     }
 

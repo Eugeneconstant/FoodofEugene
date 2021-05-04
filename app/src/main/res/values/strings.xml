@@ -42,4 +42,11 @@
     <string name="ble_device_status_connected">Connecté</string>
     <string name="ble_device_status_disconnected">Deconnecté</string>
     <string name="ble_device_status_disconnecting">Deconnexion en cours</string>
+    <string name="deviceservicetitle" />
+    <string name="deviceservicecharacteristics" />
+    <string name="characteristique_specifique">Characteristique Specifique</string>
+    <string name="arrowimg" />
+    <string name="notifier">Notifier</string>
+    <string name="lecture">Lecture</string>
+    <string name="ecriture">Ecriture</string>
 </resources>
