@@ -4,15 +4,18 @@ import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothGatt
 import android.bluetooth.BluetoothGattCallback
 import android.bluetooth.BluetoothGattCharacteristic
+import android.content.Context
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import fr.isen.eugene.foodofeugene.Model.BLEService
 import fr.isen.eugene.foodofeugene.ble.BLEConnexionState
 import fr.isen.eugene.foodofeugene.R
 import fr.isen.eugene.foodofeugene.databinding.ActivityBLEScanDetailBinding
+import java.util.*
 
 
 class BLEScanDetailActivity : AppCompatActivity() {
@@ -20,6 +23,7 @@ class BLEScanDetailActivity : AppCompatActivity() {
     private lateinit var listdevice: BluetoothDevice
     var bluetoothGatt: BluetoothGatt? = null
     private lateinit var listservice: MutableList<BLEService>
+    private lateinit var context: Context
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,12 +52,29 @@ class BLEScanDetailActivity : AppCompatActivity() {
                    listservice = it.map{
                        BLEService(it.uuid.toString(), it.characteristics)
                    }.toMutableList()
-                    binding.bleservice.adapter = DetailDeviceAdapter(listservice)
+                    binding.bleservice.adapter = DetailDeviceAdapter(listservice, bluetoothGatt, context)
                 }
             }
 
-            override fun onCharacteristicRead(gatt: BluetoothGatt?, characteristic: BluetoothGattCharacteristic?, status: Int) {
+            override fun onCharacteristicRead(gatt: BluetoothGatt?, characteristic: BluetoothGattCharacteristic?, status: Int) { //Lecture
                 super.onCharacteristicRead(gatt, characteristic, status)
+                runOnUiThread {
+                    binding.bleservice.adapter?.notifyDataSetChanged()
+                }
+            }
+
+            override fun onCharacteristicWrite(gatt: BluetoothGatt?, characteristic: BluetoothGattCharacteristic?, status: Int) { //Ecriture
+                super.onCharacteristicWrite(gatt, characteristic, status)
+                runOnUiThread {
+                    binding.bleservice.adapter?.notifyDataSetChanged()
+                }
+            }
+
+            override fun onCharacteristicChanged(gatt: BluetoothGatt?, characteristic: BluetoothGattCharacteristic?) { //Notification
+                super.onCharacteristicChanged(gatt, characteristic)
+                runOnUiThread {
+                    binding.bleservice.adapter?.notifyDataSetChanged()
+                }
             }
         })
     }
@@ -71,5 +92,9 @@ class BLEScanDetailActivity : AppCompatActivity() {
             }
 
     }
+
+
+
+
 
 }

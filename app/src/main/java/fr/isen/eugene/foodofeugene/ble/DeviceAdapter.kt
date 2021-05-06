@@ -1,5 +1,6 @@
 package fr.isen.eugene.foodofeugene.ble
 
+import android.bluetooth.BluetoothGattCharacteristic
 import android.bluetooth.le.ScanResult
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import fr.isen.eugene.foodofeugene.R
 import fr.isen.eugene.foodofeugene.databinding.CellDeviceBinding
+import java.lang.StringBuilder
 
 
 class DeviceAdapter(private val listdevice: MutableList<ScanResult>, private val clickListener: (ScanResult) -> Unit ): RecyclerView.Adapter<DeviceAdapter.DeviceViewHolder>() {
@@ -38,4 +40,6 @@ class DeviceAdapter(private val listdevice: MutableList<ScanResult>, private val
         val deviceAddress : TextView = itemView.findViewById(R.id.adresseDevice)
         val layout = itemView.findViewById<View>(R.id.cellDevice)
     }
+
+
 }
