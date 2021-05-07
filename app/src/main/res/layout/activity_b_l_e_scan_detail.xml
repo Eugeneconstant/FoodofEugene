@@ -30,8 +30,8 @@
         android:id="@+id/bleservice"
         android:layout_width="343dp"
         android:layout_height="569dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="192dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="108dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
