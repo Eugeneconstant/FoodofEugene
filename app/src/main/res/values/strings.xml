@@ -49,4 +49,7 @@
     <string name="notifier">Notifier</string>
     <string name="lecture">Lecture</string>
     <string name="ecriture">Ecriture</string>
+    <string name="proprietes">Proprietes :</string>
+    <string name="uuid">UUID :</string>
+    <string name="valeur">Valeur :</string>
 </resources>

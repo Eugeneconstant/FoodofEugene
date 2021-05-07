@@ -22,7 +22,7 @@ import fr.isen.eugene.foodofeugene.Model.BLEService
 import fr.isen.eugene.foodofeugene.R
 
 
-class DetailDeviceAdapter(private val serviceList: MutableList<BLEService>, private val gatt: BluetoothGatt?, private val context: Context):
+class DetailDeviceAdapter(private val serviceList: MutableList<BLEService>, private val gatt: BluetoothGatt?, private val context: Context?):
         ExpandableRecyclerViewAdapter<DetailDeviceAdapter.ServiceViewHolder, DetailDeviceAdapter.CharacteristicsViewHolder>
         (serviceList) {
 

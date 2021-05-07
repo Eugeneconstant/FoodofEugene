@@ -23,7 +23,7 @@ class BLEScanDetailActivity : AppCompatActivity() {
     private lateinit var listdevice: BluetoothDevice
     var bluetoothGatt: BluetoothGatt? = null
     private lateinit var listservice: MutableList<BLEService>
-    private lateinit var context: Context
+    private var context : Context? = null
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

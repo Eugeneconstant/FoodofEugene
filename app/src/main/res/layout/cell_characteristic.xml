@@ -12,52 +12,63 @@
         android:layout_height="29dp"
         android:text="@string/characteristique_specifique"
         android:textAlignment="viewStart"
-        android:textSize="18sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintHorizontal_bias="0.085"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.019" />
+        app:layout_constraintVertical_bias="0.046" />
 
     <Button
         android:id="@+id/notifier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="117dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="4dp"
+        android:backgroundTint="@color/blue"
         android:text="@string/notifier"
+        android:textColor="@color/white"
+        android:textSize="8sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ecriture"
         app:layout_constraintTop_toTopOf="@+id/ecriture" />
 
     <Button
         android:id="@+id/lecture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
+        android:layout_width="103dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="84dp"
+        android:backgroundTint="@color/blue"
         android:text="@string/lecture"
+        android:textColor="#FFFFFF"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ecriture"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.691"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/characteristiquespecifique" />
 
     <Button
         android:id="@+id/ecriture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="105dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="184dp"
+        android:backgroundTint="@color/blue"
         android:text="@string/ecriture"
+        android:textColor="#FFFFFF"
+        android:textSize="8sp"
         app:layout_constraintEnd_toStartOf="@+id/notifier"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/lecture"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/lecture" />
 
     <TextView
         android:id="@+id/uuid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="4dp"
-        android:text="UUID : "
+        android:layout_marginTop="8dp"
+        android:text="@string/uuid"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/characteristiquespecifique" />
 
@@ -65,9 +76,11 @@
         android:id="@+id/proprietes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:text="Proprietes : "
+        android:text="@string/proprietes"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uuid" />
 
@@ -75,9 +88,11 @@
         android:id="@+id/valeur"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
-        android:text="Valeur : "
+        android:layout_marginTop="8dp"
+        android:text="@string/valeur"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/proprietes" />
 </androidx.constraintlayout.widget.ConstraintLayout>
